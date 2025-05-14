@@ -9,7 +9,5 @@ select
     round(sum(log_cost),2) as total_log_costs,
     round(sum(quantity),2) as total_quantity_sold
 from {{ref ("int_orders_operational")}} sm
-left join {{ref ("stg_raw__ship")}} sh
-using (orders_id)
 group by date_date
 ORDER BY date_date DESC
